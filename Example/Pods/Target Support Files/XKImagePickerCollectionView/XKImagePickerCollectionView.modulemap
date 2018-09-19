@@ -1,0 +1,6 @@
+framework module XKImagePickerCollectionView {
+  umbrella header "XKImagePickerCollectionView-umbrella.h"
+
+  export *
+  module * { export * }
+}

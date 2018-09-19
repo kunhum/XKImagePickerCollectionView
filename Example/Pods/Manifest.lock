@@ -1,0 +1,33 @@
+PODS:
+  - IQKeyboardManager (6.1.1)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
+  - TZImagePickerController (3.0.7)
+  - XKImagePickerCollectionView (1.0.0):
+    - IQKeyboardManager
+    - SDWebImage
+    - TZImagePickerController
+
+DEPENDENCIES:
+  - XKImagePickerCollectionView (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - IQKeyboardManager
+    - SDWebImage
+    - TZImagePickerController
+
+EXTERNAL SOURCES:
+  XKImagePickerCollectionView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  TZImagePickerController: eec24e7c5628288a6657a942d8d296476e66251b
+  XKImagePickerCollectionView: 26f409f6c98fa239e062a01ad05205455bc86fc5
+
+PODFILE CHECKSUM: 07f4ad5db6735870228a9f44ca5bee4bd46691c7
+
+COCOAPODS: 1.5.3
