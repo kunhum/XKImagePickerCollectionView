@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'XKImagePickerCollectionView/Classes/XKImagePickerCollectionView/*.{h,m}'
+  s.source_files = 'XKImagePickerCollectionView/Classes/XKImagePickerCollectionView/*.{h,m,xib}'
   
   # s.resource_bundles = {
   #   'XKImagePickerCollectionView' => ['XKImagePickerCollectionView/Assets/*.png']

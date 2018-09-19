@@ -26,7 +26,7 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   TZImagePickerController: eec24e7c5628288a6657a942d8d296476e66251b
-  XKImagePickerCollectionView: 26f409f6c98fa239e062a01ad05205455bc86fc5
+  XKImagePickerCollectionView: 40859c94b1c71d55f9fb83eced90737848c5a4ef
 
 PODFILE CHECKSUM: 07f4ad5db6735870228a9f44ca5bee4bd46691c7
 
