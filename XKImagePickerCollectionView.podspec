@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XKImagePickerCollectionView'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'XKImagePickerCollectionView'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,8 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'XKImagePickerCollectionView/Classes/XKImagePickerCollectionView/*.{h,m,xib}'
+  s.source_files = 'XKImagePickerCollectionView/Classes/XKImagePickerCollectionView/*.{h,m}'
+  s.resource = 'XKImagePickerCollectionView/Classes/XKImagePickerCollectionView/*.{xib}'
   
   # s.resource_bundles = {
   #   'XKImagePickerCollectionView' => ['XKImagePickerCollectionView/Assets/*.png']
