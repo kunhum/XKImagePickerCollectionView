@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'XKImagePickerCollectionView_Example' do
+  pod 'XKImagePickerCollectionView', :path => '../'
+
+  target 'XKImagePickerCollectionView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
