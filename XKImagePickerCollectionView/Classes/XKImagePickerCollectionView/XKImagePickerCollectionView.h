@@ -40,6 +40,9 @@
 ///添加按钮图片
 @property (nonatomic, copy)   NSString *addBtnImageName;
 
+///删除按钮图片
+@property (nonatomic, strong) UIImage *itemDeleteImage;
+
 ///itemsize
 @property (nonatomic, assign) CGSize itemSize;
 

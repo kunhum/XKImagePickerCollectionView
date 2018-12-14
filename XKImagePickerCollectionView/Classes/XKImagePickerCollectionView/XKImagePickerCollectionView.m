@@ -106,8 +106,8 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
     
     TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initWithMaxImagesCount:self.maxImagesCount-self.pickerImages.count delegate:nil];
       imagePicker.selectedAssets = self.tzAssets;
-//    __weak typeof(imagePicker) weakPicker = imagePicker;
-    
+    imagePicker.allowTakeVideo = NO;
+    imagePicker.allowPickingVideo = NO;
     imagePicker.didFinishPickingPhotosHandle = ^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
         
         if (self.allImages.count < self.maxImagesCount) {
@@ -158,6 +158,8 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     XKPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    [cell.deleteButton setImage:self.itemDeleteImage forState:UIControlStateNormal];
     
     //显示图片
     if (self.imageUrls) {
