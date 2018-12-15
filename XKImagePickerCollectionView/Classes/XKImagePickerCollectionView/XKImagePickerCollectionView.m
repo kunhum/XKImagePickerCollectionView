@@ -102,7 +102,7 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
     
 }
 #pragma mark tzImagePicker
-- (void)xk_presnetToTZImagePicker {
+- (void)xk_presnetToTZImagePicker:(UIColor *)barTintColor {
     
     TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initWithMaxImagesCount:self.maxImagesCount-self.pickerImages.count delegate:nil];
       imagePicker.selectedAssets = self.tzAssets;
@@ -140,8 +140,9 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
             if (self.xkDidFinishPickImage) self.xkDidFinishPickImage(self.allImages.count,self.collectionViewLayout.collectionViewContentSize.height);
         }
     };
-
-    [imagePicker.navigationBar setBarTintColor:[UIColor colorWithRed:69/255.0 green:35/255.0 blue:10/255.0 alpha:1.0]];
+    if (barTintColor) {
+        imagePicker.navigationBar.barTintColor = barTintColor;
+    }
     [self.viewContainingController presentViewController:imagePicker animated:YES completion:nil];
 //    [self.viewController presentViewController:imagePicker animated:YES completion:nil];
 }

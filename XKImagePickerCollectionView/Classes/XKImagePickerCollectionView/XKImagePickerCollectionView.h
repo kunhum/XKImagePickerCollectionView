@@ -11,7 +11,7 @@
 @interface XKImagePickerCollectionView : UICollectionView
 
 ///TZImagePicker
-- (void)xk_presnetToTZImagePicker;
+- (void)xk_presnetToTZImagePicker:(UIColor *)barTintColor;;
 
 ///系统的
 - (void)xk_presentToImagePicker;
