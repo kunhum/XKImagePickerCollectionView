@@ -97,7 +97,7 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         [self.viewContainingController presentViewController:imagePicker animated:YES completion:nil];
-//        [self.viewController presentViewController:imagePicker animated:YES completion:nil];
+        //        [self.viewController presentViewController:imagePicker animated:YES completion:nil];
     }
     
 }
@@ -105,13 +105,13 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
 - (void)xk_presnetToTZImagePicker:(UIColor *)barTintColor {
     
     TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initWithMaxImagesCount:self.maxImagesCount-self.pickerImages.count delegate:nil];
-      imagePicker.selectedAssets = self.tzAssets;
+    imagePicker.selectedAssets = self.tzAssets;
     imagePicker.allowTakeVideo = NO;
     imagePicker.allowPickingVideo = NO;
     imagePicker.didFinishPickingPhotosHandle = ^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
         
         if (self.allImages.count < self.maxImagesCount) {
-
+            
             for (int i = 0; i < photos.count; i++) {
                 id asset = assets[i];
                 if ([self.tzAssets containsObject:asset] == NO) {
@@ -119,7 +119,7 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
                     [self.tzImages addObject:photos[i]];
                 }
             }
-
+            
             NSMutableArray *delImages = [NSMutableArray array];
             for (int i = 0; i < self.tzAssets.count; i++) {
                 id asset = self.tzAssets[i];
@@ -128,15 +128,15 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
                     [delImages addObject:image];
                 }
             }
-
+            
             [self.allImages removeObjectsInArray:delImages];
             [self.tzImages removeObjectsInArray:delImages];
-
+            
             [self.tzAssets removeAllObjects];
             [self.tzAssets addObjectsFromArray:assets];
-
+            
             [self reloadData];
-
+            
             if (self.xkDidFinishPickImage) self.xkDidFinishPickImage(self.allImages.count,self.collectionViewLayout.collectionViewContentSize.height);
         }
     };
@@ -144,7 +144,7 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
         imagePicker.navigationBar.barTintColor = barTintColor;
     }
     [self.viewContainingController presentViewController:imagePicker animated:YES completion:nil];
-//    [self.viewController presentViewController:imagePicker animated:YES completion:nil];
+    //    [self.viewController presentViewController:imagePicker animated:YES completion:nil];
 }
 
 #pragma mark 获取选中的图片
@@ -154,7 +154,7 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
 
 #pragma mark - collection view data source
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.imageUrls ? self.imageUrls.count : self.allImages.count+1;
+    return self.imageUrls ? self.imageUrls.count : (self.addBtnImageName ? self.allImages.count+1 : self.allImages.count);
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -170,7 +170,7 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
     else {
         cell.deleteButton.hidden = indexPath.item==self.allImages.count;
         
-        if (indexPath.item == self.allImages.count) {
+        if (indexPath.item == self.allImages.count && self.addBtnImageName) {
             
             cell.imageView.image = [UIImage imageNamed:self.addBtnImageName];
         }
@@ -206,21 +206,21 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    CGFloat height = CGRectGetHeight(self.bounds);
-////    CGFloat gap    = (CGRectGetWidth(self.bounds)-3*height)/2.0;
-//    return CGSizeMake(height, height);
+    //    CGFloat height = CGRectGetHeight(self.bounds);
+    ////    CGFloat gap    = (CGRectGetWidth(self.bounds)-3*height)/2.0;
+    //    return CGSizeMake(height, height);
     return self.itemSize;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-//    CGFloat height = CGRectGetHeight(self.bounds);
-//    CGFloat gap    = (CGRectGetWidth(self.bounds)-3*height)/2.0;
-//    return gap;
+    //    CGFloat height = CGRectGetHeight(self.bounds);
+    //    CGFloat gap    = (CGRectGetWidth(self.bounds)-3*height)/2.0;
+    //    return gap;
     return self.itemSpacing;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-//    CGFloat height = CGRectGetHeight(self.bounds);
-//    CGFloat gap    = (CGRectGetWidth(self.bounds)-3*height)/2.0;
-//    return gap;
+    //    CGFloat height = CGRectGetHeight(self.bounds);
+    //    CGFloat gap    = (CGRectGetWidth(self.bounds)-3*height)/2.0;
+    //    return gap;
     return self.itemSpacing;
 }
 
@@ -228,12 +228,12 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     if (self.imageUrls) {
-//        XKPhotoCollectionViewCell *cell = (XKPhotoCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        //        XKPhotoCollectionViewCell *cell = (XKPhotoCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
         
     }
     else {
         //最后一个
-        if (indexPath.item == self.allImages.count) {
+        if (indexPath.item == self.allImages.count && self.addBtnImageName) {
             if (self.allImages.count >= self.maxImagesCount) return;
             if (self.xkDidClickAddButton) self.xkDidClickAddButton(self);
         }
@@ -254,11 +254,11 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
 
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end
