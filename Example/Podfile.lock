@@ -4,7 +4,7 @@ PODS:
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
   - TZImagePickerController (3.0.7)
-  - XKImagePickerCollectionView (1.0.0):
+  - XKImagePickerCollectionView (1.0.9):
     - IQKeyboardManager
     - SDWebImage
     - TZImagePickerController
@@ -26,7 +26,7 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   TZImagePickerController: eec24e7c5628288a6657a942d8d296476e66251b
-  XKImagePickerCollectionView: 40859c94b1c71d55f9fb83eced90737848c5a4ef
+  XKImagePickerCollectionView: bf03c590098540129625ac25ea722ffc9e3a7e4f
 
 PODFILE CHECKSUM: 07f4ad5db6735870228a9f44ca5bee4bd46691c7
 

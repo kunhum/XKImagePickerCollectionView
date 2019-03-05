@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class XKPhotoCollectionViewCell;
+
 @interface XKImagePickerCollectionView : UICollectionView
 
 ///TZImagePicker
@@ -18,6 +20,9 @@
 
 ///获取选中的图片
 - (NSArray <UIImage *>*)xk_getSelectedImages;
+
+///配置cell
+@property (nonatomic, copy) void(^xkCellConfig)(XKPhotoCollectionViewCell *cell);
 
 ///添加按钮
 @property (nonatomic, copy) void(^xkDidClickAddButton)(XKImagePickerCollectionView *curCV);

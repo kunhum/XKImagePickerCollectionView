@@ -201,6 +201,8 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
         };
     }
     
+    !self.xkCellConfig ?: self.xkCellConfig(cell);
+    
     return cell;
 }
 
