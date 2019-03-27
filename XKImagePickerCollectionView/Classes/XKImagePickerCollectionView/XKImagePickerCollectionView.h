@@ -21,6 +21,9 @@
 ///获取选中的图片
 - (NSArray <UIImage *>*)xk_getSelectedImages;
 
+///删除全部选择图片
+- (void)xk_removeAllImages;
+
 ///配置cell
 @property (nonatomic, copy) void(^xkCellConfig)(XKPhotoCollectionViewCell *cell);
 
