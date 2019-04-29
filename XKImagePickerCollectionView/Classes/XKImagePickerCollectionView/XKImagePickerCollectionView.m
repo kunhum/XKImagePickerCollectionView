@@ -19,12 +19,6 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
 
 //@property (nonatomic, weak) UICollectionViewFlowLayout *flowLayout;
 
-@property (nonatomic, strong) NSMutableArray <UIImage *>*allImages;
-@property (nonatomic, strong) NSMutableArray <UIImage *>*pickerImages;
-@property (nonatomic, strong) NSMutableArray <UIImage *>*tzImages;
-
-@property (nonatomic, strong) NSMutableArray   *tzAssets;
-
 @property (nonatomic, strong) NSArray <NSURL *>*imageUrlObjects;
 
 @end
@@ -81,7 +75,7 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
         [self reloadData];
     }
     
-    if (self.xkDidFinishPickImage) self.xkDidFinishPickImage(self.allImages.count,self.collectionViewLayout.collectionViewContentSize.height);
+    if (self.xkDidFinishPickImage) self.xkDidFinishPickImage(self.allImages.count,self.collectionViewLayout.collectionViewContentSize.height, self);
     
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
@@ -137,7 +131,7 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
 
             [self reloadData];
 
-            if (self.xkDidFinishPickImage) self.xkDidFinishPickImage(self.allImages.count,self.collectionViewLayout.collectionViewContentSize.height);
+            if (self.xkDidFinishPickImage) self.xkDidFinishPickImage(self.allImages.count,self.collectionViewLayout.collectionViewContentSize.height, self);
         }
     };
     if (barTintColor) {
@@ -197,7 +191,7 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
             }
             [weakCV reloadData];
             
-            if (weakSelf.xkDidDeleteImage) weakSelf.xkDidDeleteImage(weakSelf.allImages.count, weakSelf.collectionViewLayout.collectionViewContentSize.height);
+            if (weakSelf.xkDidDeleteImage) weakSelf.xkDidDeleteImage(weakSelf.allImages.count, weakSelf.collectionViewLayout.collectionViewContentSize.height, self);
         };
     }
     
@@ -264,7 +258,7 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
     
     [self reloadData];
     
-    if (self.xkDidDeleteImage) self.xkDidDeleteImage(self.allImages.count, self.collectionViewLayout.collectionViewContentSize.height);
+    if (self.xkDidDeleteImage) self.xkDidDeleteImage(self.allImages.count, self.collectionViewLayout.collectionViewContentSize.height, self);
 }
 
 /*

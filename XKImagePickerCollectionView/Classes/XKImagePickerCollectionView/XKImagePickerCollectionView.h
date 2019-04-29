@@ -31,10 +31,15 @@
 @property (nonatomic, copy) void(^xkDidClickAddButton)(XKImagePickerCollectionView *curCV);
 
 ///选择结束
-@property (nonatomic, copy) void(^xkDidFinishPickImage)(NSInteger imageCount, CGFloat viewHeight);
+@property (nonatomic, copy) void(^xkDidFinishPickImage)(NSInteger imageCount, CGFloat viewHeight, XKImagePickerCollectionView *curView);
 
 ///选择结束
-@property (nonatomic, copy) void(^xkDidDeleteImage)(NSInteger imageCount, CGFloat viewHeight);
+@property (nonatomic, copy) void(^xkDidDeleteImage)(NSInteger imageCount, CGFloat viewHeight, XKImagePickerCollectionView *curView);
+
+@property (nonatomic, strong) NSMutableArray <UIImage *>*allImages;
+@property (nonatomic, strong) NSMutableArray <UIImage *>*pickerImages;
+@property (nonatomic, strong) NSMutableArray <UIImage *>*tzImages;
+@property (nonatomic, strong) NSMutableArray *tzAssets;
 
 ///最大图片数
 @property (nonatomic, assign) NSInteger maxImagesCount;
