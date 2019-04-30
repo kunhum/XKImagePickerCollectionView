@@ -191,7 +191,7 @@ static NSString *cellIdentifier = XKPhotoCollectionViewCellIdentifier;
             }
             [weakCV reloadData];
             
-            if (weakSelf.xkDidDeleteImage) weakSelf.xkDidDeleteImage(weakSelf.allImages.count, weakSelf.collectionViewLayout.collectionViewContentSize.height, self);
+            if (weakSelf.xkDidDeleteImage) weakSelf.xkDidDeleteImage(weakSelf.allImages.count, weakSelf.collectionViewLayout.collectionViewContentSize.height, weakSelf);
         };
     }
     
